@@ -1,74 +1,259 @@
+/* Color Palette inspired by polo & classic themes */
+:root {
+  --primary-color: #4a7c59; /* muted green */
+  --secondary-color: #f4e1d2; /* soft beige */
+  --accent-color: #d9b382; /* warm gold */
+  --background-color: #f0f4f8; /* light pastel background */
+  --dark-background: #222; /* dark mode background */
+  --text-color: #333;
+  --muted-text: #666;
+  --font-family: 'Playfair Display', serif;
+  --font-family-secondary: 'Roboto', sans-serif;
+}
+
+/* Reset & Base Styles */
 body {
-  font-family: 'Georgia', serif;
-  background-color: #f4f4f4;
   margin: 0;
-  padding: 20px;
+  font-family: var(--font-family-secondary);
+  background-color: var(--background-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+/* Dark Mode */
+body.dark-mode {
+  background-color: var(--dark-background);
+  color: #eee;
+}
+
+/* Header Styling */
 header {
-  font-family: 'Times New Roman', serif;
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #003366;
-}
-
-main {
-  background-color: #fff;
-  padding: 20px;
-  border: 3px solid #003366;
-  border-radius: 10px;
-  width: 300px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.task-input {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  flex: 1;
-  padding: 8px;
-  border: 2px solid #003366;
-  border-radius: 5px;
-  font-family: 'Georgia', serif;
-}
-
-button {
-  background-color: #003366;
+  background-color: var(--primary-color);
   color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: 'Georgia', serif;
-}
-
-button:hover {
-  background-color: #0055aa;
-}
-
-#taskList {
-  list-style-type: none;
-  padding: 0;
-}
-
-#taskList li {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 3px solid var(--accent-color);
 }
 
-.delete-btn {
-  background-color: transparent;
+header h1 {
+  font-family: var(--font-family);
+  margin: 0;
+  font-size: 2em;
+}
+
+.header-buttons button {
+  margin-left: 10px;
+  padding: 8px 12px;
   border: none;
-  color: #cc0000;
+  border-radius: 8px;
   cursor: pointer;
+  font-family: var(--font-family-secondary);
+  background-color: #fff;
+  color: var(--primary-color);
+  transition: background-color 0.2s;
+}
+.header-buttons button:hover {
+  background-color: #eee;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #557a55;
+  padding: 10px 0;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  margin: 0 12px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-family-secondary);
+  font-size: 1em;
+  transition: background-color 0.2s;
+}
+.nav-btn:hover,
+.nav-btn.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Sections */
+.section {
+  display: none;
+  padding: 10px 0;
+  animation: fadeIn 0.4s ease-in;
+}
+.section.active {
+  display: block;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Task Controls & Filters */
+.task-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+#taskTitleInput, #taskDeadline, #taskPriority {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+  font-family: var(--font-family-secondary);
+  min-width: 150px;
+}
+
+/* Filter Buttons */
+.task-filters button {
+  margin-right: 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  transition: background-color 0.2s;
+}
+.task-filters button:hover {
+  background-color: #3d6358;
+}
+
+/* Task List Styles */
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+#taskList li {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+#taskList li:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.task-item-details {
+  display: flex;
+  flex-direction: column;
+}
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.4em;
+  color: #d9534f;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.delete-btn:hover {
+  color: #b52b27;
+}
+
+/* Notes & Progress */
+#noteInput {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+  resize: vertical;
+  font-family: var(--font-family-secondary);
+}
+#notesContainer {
+  margin-top: 20px;
+}
+.note {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+#progressStats {
+  margin-top: 20px;
+}
+
+/* Calendar placeholder styles */
+#calendarContainer {
+  height: 400px;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2em;
+  color: #555;
+  font-family: var(--font-family-secondary);
+}
+
+/* Modal for Subtasks */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Focus Mode styles */
+body.focus-mode {
+  background-color: #fff;
+}
+body.focus-mode main {
+  padding: 0;
+}
+body.focus-mode header, body.focus-mode nav {
+  display: none;
+}
+
+@media(max-width: 768px){
+  main {
+    padding: 10px;
+  }
 }
