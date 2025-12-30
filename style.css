@@ -57,6 +57,7 @@ header h1 {
   color: var(--primary-color);
   transition: background-color 0.2s;
 }
+
 .header-buttons button:hover {
   background-color: #eee;
 }
@@ -82,9 +83,10 @@ nav {
   font-size: 1em;
   transition: background-color 0.2s;
 }
+
 .nav-btn:hover,
 .nav-btn.active {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Main Content */
@@ -101,6 +103,7 @@ main {
   padding: 10px 0;
   animation: fadeIn 0.4s ease-in;
 }
+
 .section.active {
   display: block;
 }
@@ -118,7 +121,10 @@ main {
   gap: 12px;
   margin-bottom: 15px;
 }
-#taskTitleInput, #taskDeadline, #taskPriority {
+
+#taskTitleInput,
+#taskDeadline,
+#taskPriority {
   padding: 10px;
   border-radius: 8px;
   border: 2px solid var(--primary-color);
@@ -137,6 +143,7 @@ main {
   color: #fff;
   transition: background-color 0.2s;
 }
+
 .task-filters button:hover {
   background-color: #3d6358;
 }
@@ -146,6 +153,7 @@ main {
   list-style: none;
   padding: 0;
 }
+
 #taskList li {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -157,13 +165,16 @@ main {
   align-items: center;
   transition: box-shadow 0.2s;
 }
+
 #taskList li:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .task-item-details {
   display: flex;
   flex-direction: column;
 }
+
 .delete-btn {
   background: none;
   border: none;
@@ -172,6 +183,7 @@ main {
   cursor: pointer;
   transition: color 0.2s;
 }
+
 .delete-btn:hover {
   color: #b52b27;
 }
@@ -186,9 +198,11 @@ main {
   resize: vertical;
   font-family: var(--font-family-secondary);
 }
+
 #notesContainer {
   margin-top: 20px;
 }
+
 .note {
   background-color: #fff;
   padding: 10px;
@@ -196,6 +210,7 @@ main {
   border-radius: 8px;
   border: 1px solid #ddd;
 }
+
 #progressStats {
   margin-top: 20px;
 }
@@ -215,44 +230,62 @@ main {
 
 /* Modal for Subtasks */
 .modal {
+  display: none; /* Hidden by default */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
-  display: flex;
+  background: rgba(0, 0, 0, 0.4);
   align-items: center;
   justify-content: center;
+  z-index: 1000; /* overlay above other content */
 }
+
+.modal.show {
+  display: flex; /* Show modal when class 'show' is added */
+}
+
 .modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 10px;
   width: 400px;
   max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   position: relative;
 }
+
 .close-btn {
   position: absolute;
   top: 10px;
   right: 15px;
   font-size: 1.5em;
   cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #000;
 }
 
 /* Focus Mode styles */
 body.focus-mode {
   background-color: #fff;
 }
+
 body.focus-mode main {
   padding: 0;
 }
-body.focus-mode header, body.focus-mode nav {
+
+body.focus-mode header,
+body.focus-mode nav {
   display: none;
 }
 
-@media(max-width: 768px){
+/* Responsive adjustments */
+@media(max-width: 768px) {
   main {
     padding: 10px;
   }
