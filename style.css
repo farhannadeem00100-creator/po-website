@@ -290,3 +290,200 @@ body.focus-mode nav {
     padding: 10px;
   }
 }
+/* Import a luxurious font from Google Fonts for elegance */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap');
+
+/* Body with cheetah pattern background and luxurious styling */
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background-color: #fff8f0; /* light pastel background */
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="10" fill="%23d2b48c"/><circle cx="80" cy="80" r="10" fill="%23d2b48c"/><circle cx="50" cy="50" r="8" fill="%23d2b48c"/><circle cx="70" cy="30" r="5" fill="%23d2b48c"/><circle cx="30" cy="70" r="5" fill="%23d2b48c"/></svg>');
+  background-repeat: repeat;
+  color: #333;
+}
+
+/* Header with gold accents and glow */
+header {
+  background: linear-gradient(135deg, #ffd700, #ffb900); /* gold gradient */
+  color: #fff;
+  padding: 25px 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  position: relative;
+  border-bottom: 4px solid #d4af37; /* gold border */
+  transition: all 0.3s ease;
+}
+
+/* Add glow effect on hover for header */
+header:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Navigation bar with darker gold theme */
+nav {
+  background-color: #b8860b; /* dark gold */
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 8px rgba(255,255,255,0.2);
+}
+
+/* Buttons with luxurious style */
+button {
+  background: linear-gradient(135deg, #ffd700, #ffb900);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: #fff;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ffb900, #ffd700);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Main content container with elegant shadow and spacing */
+main {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+/* Sections with elegant fade-in animation */
+.section {
+  display: none;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.section.active {
+  display: block;
+}
+
+/* Fade in animation for sections */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Task list styling with luxurious cards */
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+
+#taskList li {
+  background-color: #fff8dc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+#taskList li:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Modal styling for luxury with gold accents */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #ffd700, #ffb900);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  position: relative;
+  border: 3px solid #d4af37; /* gold border */
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: #fff;
+  background: transparent;
+  border: none;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #ffd700;
+}
+
+/* Additional styles for luxury and elegance */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 3em;
+  color: #b8860b; /* dark gold */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Footer with gold accents */
+footer {
+  background-color: #b8860b;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  border-top: 4px solid #ffd700;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Responsive adjustments */
+@media(max-width: 768px) {
+  header, nav, main {
+    padding: 10px;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    flex-direction: column;
+  }
+}
